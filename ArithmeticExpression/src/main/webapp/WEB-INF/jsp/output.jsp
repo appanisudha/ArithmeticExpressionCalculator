@@ -61,6 +61,7 @@
 	}
 	
 	function show(data) {
+	console.log("length"+data.list.length);
     	let tab = 
         	`<tr>
           	<th>Id</th>
@@ -70,10 +71,16 @@
     
     	// Loop to access all rows 
     	for (let r of data.list) {
+    	var id = r.id;
+    	var exp = r.expression;
+    	var res = r.result
+    	console.log("id: "+r.id);
+    	console.log("expression: "+r.expression);
+    	console.log("result: "+r.result);
         	tab += `<tr> 
-    		<td>${r.id} </td>
-    		<td>${r.expression}</td>
-    		<td>${r.result}</td>          
+    		<td>`+r.id+`</td>
+    		<td>`+r.expression+`</td>
+    		<td>`+r.result+`</td>          
 			</tr>`;
     	}
     	// Setting innerHTML as tab variable
