@@ -1,6 +1,7 @@
 package com.arithmetic.expression.controller;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,23 +32,6 @@ public class ExpressionCalculationController {
 		modelMap.put("expression", model.getExpression());
 		modelMap.put("result", model.getResult());
 		return "output";
-	}
-
-	@GetMapping("/calculations")
-	private List<ExpressionCalculationModel> getAll() {
-		List<ExpressionCalculationModel> list = service.getAll();
-		list.stream().forEach(l -> System.out.println("Expression:"+l.getExpression() + "Result:"+l.getResult()));
-		return service.getAll();
-	}
-
-	@GetMapping("/calculate/{id}")
-	private ExpressionCalculationModel getStudent(@PathVariable("id") int id) {
-		return service.getById(id);
-	}
-
-	@DeleteMapping("/calculate/{id}")
-	private void delete(@PathVariable("id") int id) {
-		service.delete(id);
 	}
 
 }
